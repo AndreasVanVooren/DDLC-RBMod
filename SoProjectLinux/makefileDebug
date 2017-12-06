@@ -1,0 +1,4 @@
+DDLCCDLL_Linux: DDLCCDLL_Linux.cpp
+	# compile the actual so lib
+	g++ -std=c++11 -c -Werror -fpic -o DDLCCDLL_Linux.o DDLCCDLL_Linux.cpp
+	g++ -o DDLCCDLL_Linux.sh DDLCCDLL_Linux.o

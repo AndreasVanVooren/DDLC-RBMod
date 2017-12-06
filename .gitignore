@@ -1,0 +1,33 @@
+# Renpy auto-generated files.
+*.bak
+*.rpyc
+
+# I'm pretty sure there's a law against submitting copyrighted content here
+*.rpa
+
+# Audacity project files
+*.aup
+*_data
+
+# GIMP Files
+*.xcf
+
+# Renpy complaining about stuff
+**/traceback.txt
+**/errors.txt
+**/log.txt
+# Renpy debug files
+/RenpyProject/**/cache/*
+/RenpyProject/**/saves/*
+
+# Dll project auto-generated
+/DllProject/**/.vs/**
+/DllProject/**/Debug/**
+/DllProject/**/x64/**
+/DllProject/**/*.vcxproj.user
+/DllProject/**/*.vcxproj.filters
+
+# files we don't want in our SO project
+/SoProjectLinux/**/*.o
+/SoProjectLinux/**/*.so
+/SoProjectLinux/**/*.sh
