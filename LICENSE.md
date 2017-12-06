@@ -79,6 +79,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * ["Evil Computer"](https://freesound.org/people/Headphaze/sounds/170606/) by Headphaze released under CC Attribution license
 * ["Computer Sounds"](https://freesound.org/people/plasterbrain/sounds/266165/) by plasterbrain released under CC0 license
 * ["SciFi Computer-1"](https://freesound.org/people/Andrewthomson/sounds/100674/) by Andrewthomson released under Sampling Plus 1.0 license
+* ["JacobsLadderSingle2.flac"](https://freesound.org/people/Halleck/sounds/19487/) by Halleck released under CC Attribution license
+* ["ELECTRIC_ZAP_001.wav"](https://freesound.org/people/JoelAudio/sounds/136542/) by JoelAudio released under CC0 license
 
 Legal stuff about licenses:
 
