@@ -14,7 +14,7 @@ These guidelines do not grant a copyright license to any DDLC-related fan conten
 
 ### Fan Work
 
-“Fan Work” refers to any content that includes IPs that belong to Team Salvato. The content in question includes, but is not limited to, art, music, animation, writing, videos, websites, apps, and games. The guidelines pertain to any fan work that takes place in the DDLC universe or includes characters, setting, or storyline from DDLC.
+ï¿½Fan Workï¿½ refers to any content that includes IPs that belong to Team Salvato. The content in question includes, but is not limited to, art, music, animation, writing, videos, websites, apps, and games. The guidelines pertain to any fan work that takes place in the DDLC universe or includes characters, setting, or storyline from DDLC.
 
 Fan work may freely be produced and shared online. Fan work may NOT be sold online or otherwise distributed for profit.
 
@@ -30,17 +30,17 @@ Some artists choose to include assets created by Team Salvato in their fan work.
 
 Examples of fan work in this category include games, websites, videos, or music that include DDLC assets in them.
 
-Any fan work that includes official DDLC assets may NOT be sold under any circumstances, online or offline. No profit may be made from these fan works in any way, except for fan work that constitutes as Fair Use under the United States FAIR USE Act of 2007. For example, a gameplay review video or commentary video typically qualifies as Fair Use. It is the artist’s responsibility to understand Fair Use and design qualifying content.
+Any fan work that includes official DDLC assets may NOT be sold under any circumstances, online or offline. No profit may be made from these fan works in any way, except for fan work that constitutes as Fair Use under the United States FAIR USE Act of 2007. For example, a gameplay review video or commentary video typically qualifies as Fair Use. It is the artistï¿½s responsibility to understand Fair Use and design qualifying content.
 
 Direct upload or hosting of DDLC assets is forbidden, except when to be used as part of fan work. No profit may be made from these uploads.
 
 ### Fan Games
 
-“Fan Games” refer to any fan work that is a game. This also includes new games that contain no official DDLC assets, as well as mods of the official DDLC game.
+ï¿½Fan Gamesï¿½ refer to any fan work that is a game. This also includes new games that contain no official DDLC assets, as well as mods of the official DDLC game.
 
-You may NOT create, copy, or distribute any fan game that is designed to be played in lieu of the official DDLC game. Any fan games, including mods, that “replace” DDLC, or imply that it should be played before the original, are forbidden. This includes mods that add new content to the DDLC base game, including, but not limited to, new art, new scenes, new visual effects, or voice acting. Fan games may ONLY be created with the assumption that the player has already completed the original DDLC game, and is looking for fan content.
+You may NOT create, copy, or distribute any fan game that is designed to be played in lieu of the official DDLC game. Any fan games, including mods, that ï¿½replaceï¿½ DDLC, or imply that it should be played before the original, are forbidden. This includes mods that add new content to the DDLC base game, including, but not limited to, new art, new scenes, new visual effects, or voice acting. Fan games may ONLY be created with the assumption that the player has already completed the original DDLC game, and is looking for fan content.
 
-A common example is fan games that let players spend more time with the club members, possibly including new story arcs, or to satisfy the players’ desire for additional dialogue, or for a more “normal” game. These games are usually considered okay, because the only players interested in them would be those who have completed DDLC and are looking for new content. Any fan games or mods that suggest new players should play it instead of DDLC are not allowed.
+A common example is fan games that let players spend more time with the club members, possibly including new story arcs, or to satisfy the playersï¿½ desire for additional dialogue, or for a more ï¿½normalï¿½ game. These games are usually considered okay, because the only players interested in them would be those who have completed DDLC and are looking for new content. Any fan games or mods that suggest new players should play it instead of DDLC are not allowed.
 
 Fan games must state upon first run that it is a fan game unaffiliated with the official Doki Doki Literature Club. They must advise that the original game should be completed before playing, as well as provide a link to the official website where it can be downloaded (http://ddlc.moe).
 
@@ -52,7 +52,7 @@ This is a Doki Doki Literature Club fan game that is not affiliated with Team Sa
 
 The above guidelines regarding fan games also apply to mods of the official DDLC game. A mod is any game or project whose content relies on making changes to the official DDLC game, such as adding/replacing code, art, music, writing, or other assets.
 
-Any mods must NOT be distributed as a complete game. They should contain only the files that are necessary to install the mod (usually files that are added to the DDLC game folder). Most mods only require the scripts.rpa file to be replaced – sometimes images.rpa if new graphics have been added to the game. In this example, please distribute your mod ONLY as these files, so that the user installs it into their existing official DDLC game.
+Any mods must NOT be distributed as a complete game. They should contain only the files that are necessary to install the mod (usually files that are added to the DDLC game folder). Most mods only require the scripts.rpa file to be replaced ï¿½ sometimes images.rpa if new graphics have been added to the game. In this example, please distribute your mod ONLY as these files, so that the user installs it into their existing official DDLC game.
 
 ### Everything Else
 
@@ -68,7 +68,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ---------------------------
 
-# OTHER ASSETS
+# CREDITS
+
+Code, writing, design and additional art:  
+Andreas Van Vooren (N00bFlesh)
+
+# EXTERNAL ASSETS
 
 ## Sound effects
 
@@ -81,9 +86,25 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * ["SciFi Computer-1"](https://freesound.org/people/Andrewthomson/sounds/100674/) by Andrewthomson released under Sampling Plus 1.0 license
 * ["JacobsLadderSingle2.flac"](https://freesound.org/people/Halleck/sounds/19487/) by Halleck released under CC Attribution license
 * ["ELECTRIC_ZAP_001.wav"](https://freesound.org/people/JoelAudio/sounds/136542/) by JoelAudio released under CC0 license
+* ["whip.wav"](https://freesound.org/people/_def/sounds/346524/) by _def released under CC Attribution license
+* ["Spinning Cable 192kHz.wav"](https://freesound.org/people/JarredGibb/sounds/219031/) by sophiehall3535 released under CC Attribution license
+* ["Steel_On_Steel_Impacts_Many.wav"](https://freesound.org/people/mickyman5000/sounds/340493/) by mickyman5000 released under CC0 license
+* ["Alto Gong, Metal Hit, B (H4n).wav"](https://freesound.org/people/InspectorJ/sounds/411575/) by InspectorJ released under CC Attribution license
 
-Legal stuff about licenses:
+## Additional Images
 
-* Sampling Plus 1.0 : https://creativecommons.org/licenses/sampling+/1.0/legalcode
-* CC Attribution : https://creativecommons.org/licenses/by/3.0/legalcode
-* CC0 : https://creativecommons.org/publicdomain/zero/1.0/legalcode
+* Hand (http://www.freepngimg.com/png/6015-hands-png-hand-image-): Unknown author
+* Noose  (http://minecraftcreepypasta.wikia.com/wiki/File:Hangmans_noose_png_by_mysticmorning-d4ns3ak.png): Attributed to mysticmorning, posted by Skeleton32211
+* ["4Messer fcm.png"](https://commons.wikimedia.org/wiki/File:4Messer_fcm.png) by Frank C. MÃ¼ller released under CC BY-SA 2.0 DE license
+* Pan (https://pixabay.com/nl/pan-koken-dor-koekenpan-554072/): by Silberfuchs released under CC0 license
+* ["Electronic-range National NE6100 open.jpg"](https://commons.wikimedia.org/wiki/File:Electronic-range_National_NE6100_open.jpg) by Miya.m under the CC BY-SA 3.0 license
+* ["Westinghouse Microwave Oven, 1956, jointly produced by Tappen, Raytheon, & Westinghouse, this model served as demo model at the 1956 World's Fair in Belgium - National Electronics Museum - DSC00282.JPG"](https://commons.wikimedia.org/wiki/File:Westinghouse_Microwave_Oven,_1956,_jointly_produced_by_Tappen,_Raytheon,_%26_Westinghouse,_this_model_served_as_demo_model_at_the_1956_World%27s_Fair_in_Belgium_-_National_Electronics_Museum_-_DSC00282.JPG) (Yes, the name is that long) by Daderot under the CC0 1.0 license
+* ["Choco souffle.jpg"](https://commons.wikimedia.org/wiki/File:Choco_souffle.jpg) by Akovacs.hu under public domain
+* ["Souffle au chocolate.jpg"](https://commons.wikimedia.org/wiki/File:Souffle_au_chocolate.jpg) by Alpha under the CC BY-SA 2.0 license
+https://commons.wikimedia.org/wiki/File:Fornello_020.JPG
+https://commons.wikimedia.org/wiki/File:30_Days_of_Gratitude-_Day_15_(6347253194).jpg
+https://commons.wikimedia.org/wiki/File:Halloween_Cupcake_270_(5076903800).jpg
+https://commons.wikimedia.org/wiki/File:Choco_pink.jpg
+https://commons.wikimedia.org/wiki/File:Rocky_Road_Cupcakes.png
+https://commons.wikimedia.org/wiki/File:Red_Velvet_Cupcake.jpg
+https://commons.wikimedia.org/wiki/File:%E7%B5%90%E9%9C%B2_(9809299716).jpg

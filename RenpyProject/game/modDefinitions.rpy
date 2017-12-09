@@ -1,4 +1,4 @@
-transform sticker_hop:
+transform mod_sticker_hop:
     yoffset 80
     easein_quad .24 yoffset -60
     easeout_quad .18 yoffset 0
@@ -6,40 +6,40 @@ transform sticker_hop:
 image tos2g = "mod/warning2g.png"
 
 #[TODO] Maybe add mod versions of these
-image m_sticker:
+image mod_m_sticker:
     "gui/poemgame/m_sticker_1.png"
 
-image s_sticker:
+image mod_s_sticker:
     "gui/poemgame/s_sticker_1.png"
 
-image n_sticker:
+image mod_n_sticker:
     "gui/poemgame/n_sticker_1.png"
 
-image y_sticker:
+image mod_y_sticker:
     "gui/poemgame/y_sticker_1.png"
 
-image s_sticker hop:
+image mod_s_sticker hop:
     "gui/poemgame/s_sticker_2.png"
-    sticker_hop
-    "s_sticker"
+    mod_sticker_hop
+    "mod_s_sticker"
 
-image n_sticker hop:
+image mod_n_sticker hop:
     "gui/poemgame/n_sticker_2.png"
-    sticker_hop
-    "n_sticker"
+    mod_sticker_hop
+    "mod_n_sticker"
 
-image y_sticker hop:
+image mod_y_sticker hop:
     "gui/poemgame/y_sticker_2.png"
-    sticker_hop
-    "y_sticker"
+    mod_sticker_hop
+    "mod_y_sticker"
+
+image mod_m_sticker hop:
+    "gui/poemgame/m_sticker_2.png"
+    mod_sticker_hop
+    "mod_m_sticker"
 
 transform hagusuki:
     tcommon(300)
-
-image m_sticker hop:
-    "gui/poemgame/m_sticker_2.png"
-    sticker_hop
-    "m_sticker"
 
 image batoru = "mod/batoru.png"
 
@@ -71,7 +71,166 @@ image explosion:
     0.1
     "mod/particles/boom7.png"
     0.1
-    "gui/invis.png"
+    "mod/invis.png"
+
+# transform bouncyCake:
+
+image whipit:
+    xalign 0.5
+    yalign 0.5
+    "mod/attacks/whip2.png"
+    xoffset -150
+    yoffset 40
+    rotate -30
+    linear 0.3 rotate 30 xoffset 0
+    "mod/attacks/whip4.png"
+    yoffset 0
+    xalign 0.5
+    yalign 0.5
+    rotate 0
+    linear 0.5 zoom 1.5 alpha 0
+
+image spark:
+    xalign 0.5
+    yalign 0.5
+    "mod/attacks/spark1.png"
+    0.1
+    "mod/attacks/spark2.png"
+    0.1
+    "mod/attacks/spark1.png"
+    0.1
+    "mod/attacks/spark2.png"
+    0.1
+    "mod/attacks/spark1.png"
+    0.1
+    "mod/attacks/spark2.png"
+    0.1
+    "mod/attacks/spark3.png"
+    0.1
+    "mod/attacks/spark2.png"
+    0.1
+    "mod/attacks/spark1.png"
+    0.1
+    "mod/invis.png"
+
+init -1 python:
+    def glitchFunc(trans,st,at):
+        trans.xoffset = renpy.random.randint(-5,5)
+        trans.yoffset = renpy.random.randint(-5,5)
+        randFloatX = renpy.random.random()*0.1 + 0.95
+        randFloatY = renpy.random.random()*0.1 + 0.95
+        trans.xzoom = randFloatX
+        trans.yzoom = randFloatY
+        return 0.02
+
+image glitch:
+    xalign 0.5
+    yalign 0.5
+    block:
+        "mod/attacks/glitch1.png"
+        0.1
+        "mod/attacks/glitch2.png"
+        0.1
+        "mod/attacks/glitch3.png"
+        0.1
+        "mod/attacks/glitch4.png"
+        0.1
+        repeat 4
+    parallel:
+        "mod/attacks/glitch5.png"
+        0.05
+        "mod/attacks/glitch6.png"
+        0.05
+        repeat
+    parallel:
+        function glitchFunc
+    parallel:
+        2
+        linear 0.3 alpha 0
+
+image lassothecarp:
+    xalign 0.5
+    yalign 0.5
+    "mod/attacks/lasso.png"
+    xoffset -300
+    yoffset -20
+    rotate -50
+    easein 0.4 rotate 0 xoffset 0 yoffset 0
+    linear 0.4 xzoom 0.5
+    alpha 0
+
+image knifeattack:
+    contains:
+        xalign 0.5
+        yalign 0.5
+        "mod/attacks/knife.png"
+        rotate -30
+        xoffset 225
+        yoffset -130
+        linear 0.25 xoffset 52 yoffset -30
+        function playStab
+        linear 0.25 alpha 0
+    contains:
+        0.25
+        "blood"
+        0.25
+        linear 0.1 alpha 0
+
+image shank:
+    contains:
+        xalign 0.5
+        yalign 0.5
+        "mod/attacks/knife.png"
+        rotate -30
+        block:
+            xoffset 104
+            yoffset -60
+            0.05
+            xoffset 52
+            yoffset -30
+            function playStab
+            0.05
+            repeat 5
+        linear 0.25 alpha 0
+    contains:
+        0.05
+        "blood"
+        0.25
+        linear 0.1 alpha 0
+    contains:
+        0.25
+        "blood"
+        0.25
+        linear 0.1 alpha 0
+    contains:
+        0.45
+        "blood"
+        0.25
+        linear 0.1 alpha 0
+
+image panattack:
+    xalign 0.5
+    yalign 0.5
+    "mod/attacks/pan.png"
+    rotate 135
+    offset (300,0)
+    parallel:
+        linear 0.4 offset (0,0) knot (150,-100)
+    parallel:
+        linear 0.4 rotate 45
+    "mod/attacks/whip4.png"
+    yoffset 0
+    xalign 0.5
+    yalign 0.5
+    rotate 0
+    linear 0.5 zoom 1.5 alpha 0
+
+image souffleattack:
+    xpos 640
+    ypos 720
+    "mod/attacks/oven.png"
+
+
 
 image hand :
      "mod/enemies/hand.png"
@@ -94,15 +253,30 @@ default persistent.sim_satisfaction = 0.0
 
 default availableCharacters = {}
 
+init -1 python :
+    def playStab(trans,st,at):
+        renpy.sound.play( renpy.random.choice(["<to 1>sfx/stab.ogg", "<from 1.941 to 3>sfx/stab.ogg", "<from 4.211 to 5>sfx/stab.ogg"]) )
+        return None
+    def playRetract(trans,st,at):
+        renpy.sound.play( renpy.random.choice(["<from 1.194 to 1.941>sfx/stab.ogg", "<from 3.281 to 4.211>sfx/stab.ogg"]) )
+        return None
+
 image yuri stab_repeat:
     "yuri/stab/4.png"
+    function playStab
     0.4
     "yuri/stab/5.png"
+    function playRetract
     0.4
     repeat
 
 define audio.t6g2 = "<from 4.619>bgm/6g.ogg"
 define audio.stabloop = "mod/stabloop.ogg"
+define audio.singlestab1 = "<to 1>stab.ogg"
+define audio.singlestab2 = "<from 1.941 to 3>stab.ogg"
+define audio.singlestab3 = "<from 4.211 to 5>stab.ogg"
+define audio.singlestabretract1 = "<from 1.194 to 1.941>stab.ogg"
+define audio.singlestabretract1 = "<from 3.281 to 4.211>stab.ogg"
 
 define sim = DynamicCharacter('sim_name', what_prefix='"', what_suffix='"', ctc="ctc", ctc_position="fixed")
 default sim_name = "Bellevue"
@@ -182,6 +356,13 @@ init python:
         DefaultApply(m,s,t)
         return s.name + " lasso'd " + t.name + " like a wild animal!"
 
+    def Bake(m,s,t):
+        truHeal = m.damage
+        result = s.name + " baked a delicious cupcake for " + t.name + ", healing " + str(truHeal) + "HP."
+        if(t.team != s.team):
+            result += "\nThis was a terrible idea."
+        return result;
+
     def Souffle(m,s,t):
         global characters
         truHeal = m.damage
@@ -191,12 +372,12 @@ init python:
                 if(c.hp > c.maxhp()): c.hp = c.maxhp()
         return s.name + " healed " + str(truHeal) + " to all party members!"
 
-    atk_spark    = Attack("Spark",10,0)
-    atk_glitch   = Attack("Glitch",30,10,5)
-    atk_whip     = Attack("Whip",10,0)
-    atk_lasso    = Attack("Lasso",20,5,3, ApplyFunc= Lasso)
-    atk_stab     = Attack("Stab",10,0)
-    atk_shank    = Attack("Shank",40,15,6)
-    atk_pan      = Attack("Pan",10,0)
+    atk_spark    = Attack("Spark",10,0, img_id = "spark", sfx_path = "mod/sfx/spark16.wav")
+    atk_glitch   = Attack("Glitch",30,10,5, img_id = "glitch", sfx_path = "mod/sfx/glitch16.wav")
+    atk_whip     = Attack("Whip",10,0, img_id="whipit", sfx_path = "mod/sfx/whipcrack16.wav")
+    atk_lasso    = Attack("Lasso",20,5,3, ApplyFunc= Lasso, img_id="lassothecarp", sfx_path = "mod/sfx/lasso16.wav")
+    atk_stab     = Attack("Stab",10,0, img_id = "knifeattack", sfx_path = "<silence .1>")
+    atk_shank    = Attack("Shank",40,15,6, img_id = "shank", sfx_path = "<silence .1>")
+    atk_pan      = Attack("Pan",10,0, img_id = "panattack", sfx_path = "mod/sfx/pan.wav")
     atk_bake     = Attack("Bake",20,5,2, ApplyFunc=DefaultHeal, icon_path = "mod/icons/heal.png")
     atk_souffle  = Attack("Soufflé",40,20,0, ApplyFunc=Souffle, icon_path = "mod/icons/heal.png")

@@ -27,7 +27,7 @@ screen battle_ui:
             text ui_text xalign 0.0 yalign 0.0 xoffset 265 yoffset 29
             if current_state == battlestate_startturn or current_state == battlestate_text or current_state == battlestate_execAtk or current_state == battlestate_endTurn or current_state == battlestate_atkDone:
                 image "gui/ctc.png" xalign 0.5 yalign 0.0 xanchor 1.0 yanchor 1.0 xoffset 400 yoffset 140
-                imagebutton idle "gui/invis.png" xfill True yfill True xalign 1.0 yalign 1.0 xanchor 1.0 yanchor 1.0 action Return(0)
+                imagebutton idle "mod/invis.png" xfill True yfill True xalign 1.0 yalign 1.0 xanchor 1.0 yanchor 1.0 action Return(0)
             elif current_state == battlestate_movSel:
                 vbox xalign 0.0 yalign 0.0 xoffset 265 yoffset 65 xsize gui.text_width  spacing 5:
                     for m in currentCharacter.atk_list:
@@ -43,7 +43,7 @@ screen battle_ui:
                                         text str(m.cost) xalign 0.0
             elif current_state == battlestate_tgtSel:
                 for c in characters:
-                    imagebutton idle "gui/selector.png" xalign 0.5 yalign 0.5 xoffset c.posX yoffset c.posY action Return(c)
+                    imagebutton idle "mod/selector.png" xalign 0.5 yalign 0.5 xoffset c.posX yoffset c.posY action Return(c)
                     if(c.team != playerTeam):
                         text c.name xalign 0.5 yalign 0.5 xoffset c.posX yoffset c.posY -100
                 button xoffset 160 action Return(-1) :
@@ -104,21 +104,34 @@ init -1 python:
     global currentCharacter
     global selectedMove
     global targetCharacter
+    timesHealedOpponent = 0
     lastBattleWon = False
 
     def DefaultApply(self, srcChar, tgtChar):
         truDmg = ceil( self.damage * (float(srcChar.attack())/tgtChar.defense() ) )
         tgtChar.hp -= truDmg
         if(tgtChar.hp < 0): tgtChar.hp = 0
-        return tgtChar.name + " took " + str(truDmg) + " damage !"
+        return tgtChar.name + " took " + str(truDmg) + " damage!"
     def DefaultHeal(self, srcChar, tgtChar):
+        global timesHealedOpponent
         truDmg = self.damage
         tgtChar.hp += truDmg
         if(tgtChar.hp > tgtChar.maxhp()): tgtChar.hp = tgtChar.maxhp()
-        return tgtChar.name + " healed " + str(truDmg) + " damage !"
+        result = tgtChar.name + " healed " + str(truDmg) + " damage!"
+        if(tgtChar.team != srcChar.team and srcChar.team == playerTeam):
+            timesHealedOpponent += 1
+            if(timesHealedOpponent < 3):
+                result += "\nIn hindsight, this was a stupid idea."
+            elif (timesHealedOpponent < 7):
+                result += "\nYou should really stop healing the opponent."
+            elif (timesHealedOpponent < 10):
+                result += "\n...Maybe you should check yourself for brain damage,\nbecause this is an unnatural amount of stupidity."
+            else:
+                result += "\n...Please seek help..."
+        return result
     class Attack:
         #ApplyFunc is the function that provides the actual calculation for damage. This can be used for
-        def __init__(self, name, damage, cost = 0, lvlReqs = 0, img_id ="explosion", sfx_path = "sfx/boom.wav", icon_path = "mod/icons/knife.png", ApplyFunc = DefaultApply, preferredForTeam=False):
+        def __init__(self, name, damage, cost = 0, lvlReqs = 0, img_id ="explosion", sfx_path = "mod/sfx/boom.wav", icon_path = "mod/icons/knife.png", ApplyFunc = DefaultApply, preferredForTeam=False):
             self.name = name
             self.damage = damage
             self.preferredForTeam = preferredForTeam
@@ -135,7 +148,7 @@ init -1 python:
             global ui_text
             atkFxTransform = Transform(xoffset = tgtChar.posX, yoffset = tgtChar.posY )
             renpy.show(self.img_id, at_list = [atkFxTransform], layer = "overlay")
-            renpy.play(self.sfx_path)
+            renpy.sound.play(self.sfx_path)
             srcChar.mp -= self.cost
             if(srcChar.mp < 0): srcChar.mp = 0
 
@@ -356,7 +369,7 @@ init -1 python:
         global ui_text
         global turnStart
         #get some random enemies
-        characters = list(initialChars)
+        characters = filter( lambda c: c.hp > 0, initialChars)
         for i, c in enumerate(characters):
             c.hash = str(i)
 
@@ -521,8 +534,8 @@ label TestBattle:
         def_bonus = 20,
         spd_bonus = 20,
         resist_bonus = 20,
-        atk_list = [ Attack( name = "Spark",  damage = 15 ), Attack( name = "Glitch",  damage = 40, cost = 25 )],
-        img_id="m_sticker"
+        atk_list = [ atk_spark, atk_glitch ],
+        img_id="mod_m_sticker"
         )
         test2 = BattleCharacter(
         name = "Yaoi",
@@ -534,8 +547,23 @@ label TestBattle:
         def_bonus = 20,
         spd_bonus = 20,
         resist_bonus = 20,
-        atk_list = [ Attack( name = "Unstab", damage = 20,icon_path = "mod/icons/heal.png",ApplyFunc=DefaultHeal ), Attack( name = "Insanity",  damage = 40, cost = 25 )],
+        atk_list = [ atk_stab, atk_shank ],
         fxFlags = 2,
+        img_id="mod_y_sticker"
+        )
+        testloli = BattleCharacter(
+            name = "Nutsucci",
+            team = playerTeam,
+            lvl = 25,
+            insane = 1,
+            hp_bonus = 20,
+            atk_bonus = 20,
+            def_bonus = 20,
+            spd_bonus = 20,
+            resist_bonus = 20,
+            atk_list = [ atk_pan, atk_bake, atk_souffle ],
+            fxFlags = 2,
+            img_id="mod_n_sticker"
         )
         test5 = BattleCharacter(
         name = "Sayonara",
@@ -547,9 +575,9 @@ label TestBattle:
         def_bonus = 20,
         spd_bonus = 20,
         resist_bonus = 20,
-        atk_list = [ Attack( name = "Strangle", damage = 15 ), Attack( name = "Bind",  damage = 40, cost = 25 )],
+        atk_list = [ atk_whip, atk_lasso ],
         fxFlags = 2,
-        img_id="s_sticker"
+        img_id="mod_s_sticker"
         )
 
         test3 = BattleCharacter(
@@ -606,12 +634,12 @@ label TestBattle:
         img_id = "hand"
         )
 
-    call Battle( [test1,test2,test3,test4,test5], "monika_room", "mod/peppersteak.ogg" ) from _call_Battle
+    call TrueBattle( [test1,test2,test3,test4,test5,testloli], "monika_room", "mod/peppersteak.ogg" ) from _call_Battle
 
     "Hey wanna do another testbattle?"
     "Boom!"
 
-    call Battle( [test1,test2,test6,test7,test5], "monika_room", "mod/peppersteak.ogg" ) from _call_Battle_1
+    call TrueBattle( [test1,test2,test6,test7,test5,testloli], "monika_room", "mod/peppersteak.ogg" ) from _call_Battle_1
 
     return
 

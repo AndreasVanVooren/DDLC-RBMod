@@ -60,10 +60,10 @@ init python:
         prevChars = set(availableCharacters.keys())
 
         result = 0
-        result |= CheckCharacterUpdateFor(say,sayValid,cids,RBCharacter( BattleCharacter(name = s_name, team = playerteam, lvl = 1, insane = 0, hp_bonus = 10, atk_bonus = 10, def_bonus = 25, spd_bonus = 10, atk_list=[atk_whip, atk_lasso], img_id="s_sticker", fxFlags=1) ))
-        result |= CheckCharacterUpdateFor(yur,yurValid,cidy,RBCharacter( BattleCharacter(name = y_name, team = playerteam, lvl = 1, insane = 0, hp_bonus = 10, atk_bonus = 10, def_bonus = 25, spd_bonus = 10, atk_list=[atk_stab, atk_shank], img_id="y_sticker", fxFlags=1) ))
-        result |= CheckCharacterUpdateFor(mon,monValid,cidm,RBCharacter( BattleCharacter(name = m_name, team = playerteam, lvl = 1, insane = 0, hp_bonus = 10, atk_bonus = 10, def_bonus = 25, spd_bonus = 10, atk_list=[atk_spark, atk_glitch], img_id="m_sticker") ))
-        result |= CheckCharacterUpdateFor(nat,natValid,cidn,RBCharacter( BattleCharacter(name = n_name, team = playerteam, lvl = 1, insane = 0, hp_bonus = 10, atk_bonus = 10, def_bonus = 10, spd_bonus = 10, atk_list=[atk_pan, atk_souffle, atk_bake], img_id="n_sticker") ))
+        result |= CheckCharacterUpdateFor(say,sayValid,cids,RBCharacter( BattleCharacter(name = s_name, team = playerteam, lvl = 1, insane = 0, hp_bonus = 10, atk_bonus = 10, def_bonus = 25, spd_bonus = 10, atk_list=[atk_whip, atk_lasso], img_id="mod_s_sticker", fxFlags=1) ))
+        result |= CheckCharacterUpdateFor(yur,yurValid,cidy,RBCharacter( BattleCharacter(name = y_name, team = playerteam, lvl = 1, insane = 0, hp_bonus = 10, atk_bonus = 10, def_bonus = 25, spd_bonus = 10, atk_list=[atk_stab, atk_shank], img_id="mod_y_sticker", fxFlags=1) ))
+        result |= CheckCharacterUpdateFor(mon,monValid,cidm,RBCharacter( BattleCharacter(name = m_name, team = playerteam, lvl = 1, insane = 0, hp_bonus = 10, atk_bonus = 10, def_bonus = 25, spd_bonus = 10, atk_list=[atk_spark, atk_glitch], img_id="mod_m_sticker") ))
+        result |= CheckCharacterUpdateFor(nat,natValid,cidn,RBCharacter( BattleCharacter(name = n_name, team = playerteam, lvl = 1, insane = 0, hp_bonus = 10, atk_bonus = 10, def_bonus = 10, spd_bonus = 10, atk_list=[atk_pan, atk_souffle, atk_bake], img_id="mod_n_sticker") ))
         if(result < 0):
             return
 
@@ -354,7 +354,7 @@ label yuri_cackling_maniacally_while_stabbing_herself_EX:
     sim "Now now, that won't do."
     sim "Ya can't go and bring in broken people, can ya?{p}I mean, look at the last one that got in here."
     play music t6g2
-    play sound stabloop loop
+    #play sound stabloop loop
     show yuri stab_repeat zorder 2 at t11
     $ style.say_dialogue = style.default_yuri
     $ y_name = "AAHAHAHAHAHAHAHAHHAHAHAHAHAHAHAHA"
@@ -371,7 +371,7 @@ label yuri_cackling_maniacally_while_stabbing_herself_EX:
     y "AHAAHAHAHHAHAHAHAHHAHAHAHAHAAHAHAHAHAHAH\nHAHAHAHHAHAHHAHAHAAHAHAHAHHAHAHAHAHAHAHA\nHAHHAHAHAHAHAHAAHAHAHAHAHAHAHAHAHAHAHAH{nw}"
     $ y_name = "Yuri"
     hide yuri
-    stop sound
+    #stop sound
     stop music
     $ style.say_dialogue = style.normal
     sim "Sheesh. Try something not broken next time, okay?"

@@ -31,11 +31,11 @@ label start:
         $ renpy.call_screen("dialog", "You expect Jojo to be your first kiss.\nBUT IT WAS ME, DIO!", ok_action=Return())
         $ persistent.playername = player = "Dio"
 
-    call mod_boot from _call_mod_boot
+    #call mod_boot from _call_mod_boot
     #call s_FirstBoss
     #jump FUCKINGRAW
     #call TestSurvive
-    #call TestBattle
+    call TestBattle
     return
 
 label endgame(pause_length=4.0):
