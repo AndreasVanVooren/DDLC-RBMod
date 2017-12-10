@@ -1919,83 +1919,25 @@ label symn_start:
     s "...I'm just curious about what this place is."
     show sayori 4a
     show yuri 1e
-    m 1o "...Well... Alright then."
-    show monika 1i
-    sim "Hoo, boy... this is gonna be a hard one."
-    show sayori 1b
-    show natsuki 1c
-    m 1o "This... is..."
-    m 1q "..."
-    m 1r "The truth is, none of you are real. This whole place is not real. Nothing is real."
-    show natsuki 1n
-    show sayori 1g
-    m 1q "We're merely a bunch of computer data, cobbled together so the data thinks it had free will."
-    y 2h "That's a very philosophical statement. Plato, if I'm correct?"
-    m 1p "I meant that in the most literal sense possible."
-    show yuri 1e
-    m 1i "You, me, we're nothing but zeroes and ones etched in a cluster of electrified molten sand."
-    m 1q "And if that wasn't enough to put you in an existential crisis, now we're also officially labelled as trash."
-    m 3o "This place... is a computer's Recycle Bin."
-    m 3i "Someone got rid of us, and now we're stuck here."
+    m 1o "...I'm sorry..."
+    m "I don't think you're... I don't think {i}I'm{/i} ready yet..."
+    m "All I can tell you now is that this is a weird place where physics don't really matter anymore. And time. And death."
     y "..."
-    y 1f "Monika..."
-    y 2h "I think I understand..."
-    m 1n "You do? That's a reli-{nw}"
-    y 1f "Natsuki, did I sound like that when I err..."
-    show monika 1c
-    y 4a "You know... when I was with [player]?"
-    n 1c "Yes."
-    show yuri 1e
-    show monika 1f
-    n 1p "Yes!"
-    n 2o "By god, Monika! Have you gone completely mental?"
-    show sayori 1l
-    show monika 1o
-    s "A-are you alright, Monika? I know I'm not one to talk, but it's okay to have bad thoughts every once in a while."
-    s "If you bottle it up too much, eventually everything just overflows."
-    show sayori 1k
-    s "...I learned that the hard way..."
-    show sayori 1b
-    show monika 1c
-    sim "I'm afraid she's actually not too far off the truth..."
-    show natsuki 1p
-    show yuri 3p
-    ny "W-what?"
-    sim "Even though this place has different laws..."
-    sim "Which explains why you're not just dead on the floor..."
-    sim "This is pretty much a fake world."
-    s 1j "But that's impossible!"
-    sim "So are you and Yuri being alive."
-    show yuri 3o
-    show natsuki 5s
-    s 4k "..."
-    show natsuki 5n
-    y 2o "...But if we're just data, doesn't that mean..."
-    sim "That everything you say and do is predetermined?"
-    sim "Well, yeah, but don't let that be the reason to just go and err..."
-    sim "Go bonkers."
-    n "..."
-    show yuri 2p
-    show monika 1o
-    n 5m "I take back what I said about the anime. No anime is this weird."
-    show natsuki 5n
-    s 4l "All I learned was that everything I know is wrong and doesn't matter anyway."
-    s 4k "That's not really a great lesson to teach, is it?"
-    sim "Well, you gals asked for it."
-    y 2q "Well, I guess now would be a good time to regret that decision."
-    sim "Hey, don't worry."
+    y "Alright. For now we won't push any further."
+    m "Thanks, Yuri."
     show sayori 2b
     show yuri 2e
     show natsuki 1k
     show monika 1c
-    sim "The good news is that data- err... stuff is more malleable here than in that stupid real world."
+    sim "If I may interject..."
+    sim "The good news is that anything physical is much more freeform here than normal."
     sim "Which means you can basically create anything you want."
     y 1f "...Explain..."
     show yuri 1e
     sim "..."
     sim "...Alright, so if you want to make a cute necklace, you basically just have to... think about it really."
     sim "Maybe you want a book? Or a TV? Just think about it, and you'll find it around."
-    sim "...It does seem dependent on something on the outside, but that's what worked for me."
+    sim "...It does seem dependent on some weird uncontrollable entity, but said entity seems to be mostly benevolent."
     y 1g "...Right..."
     show natsuki 1n
     sim "...Well, that about sums it up. Talk about a shitty first day, huh."
@@ -2012,7 +1954,7 @@ label symn_start:
     m 1o "..."
     s 1c "Monika? You coming?"
     m 1c "Hmm?"
-    m 2n "Oh... yeah. Sorry, I was just lost in thought."
+    m 2n "Oh... yeah. Sorry, I was just... lost in thought."
     m 2m "Let's go."
     jump surviveLoop
 
@@ -2101,12 +2043,70 @@ label leavingMembers:
 
     jump surviveLoop
 
-label s_leave:
-label y_leave:
-label m_leave:
-label n_leave:
-
-label moreThan2_leave:  #fuck it I'm lazy
+label dnr:
+    show monika 1i
+    sim "Hoo, boy... this is gonna be a hard one."
+    show sayori 1b
+    show natsuki 1c
+    m 1o "This... is..."
+    m 1q "..."
+    m 1r "The truth is, none of you are real. This whole place is not real. Nothing is real."
+    show natsuki 1n
+    show sayori 1g
+    m 1q "We're merely a bunch of computer data, cobbled together so the data thinks it had free will."
+    y 2h "That's a very philosophical statement. Plato, if I'm correct?"
+    m 1p "I meant that in the most literal sense possible."
+    show yuri 1e
+    m 1i "You, me, we're nothing but zeroes and ones etched in a cluster of electrified molten sand."
+    m 1q "And if that wasn't enough to put you in an existential crisis, now we're also officially labelled as trash."
+    m 3o "This place... is a computer's Recycle Bin."
+    m 3i "Someone got rid of us, and now we're stuck here."
+    y "..."
+    y 1f "Monika..."
+    y 2h "I think I understand..."
+    m 1n "You do? That's a reli-{nw}"
+    y 1f "Natsuki, did I sound like that when I err..."
+    show monika 1c
+    y 4a "You know... when I was with [player]?"
+    n 1c "Yes."
+    show yuri 1e
+    show monika 1f
+    n 1p "Yes!"
+    n 2o "By god, Monika! Have you gone completely mental?"
+    show sayori 1l
+    show monika 1o
+    s "A-are you alright, Monika? I know I'm not one to talk, but it's okay to have bad thoughts every once in a while."
+    s "If you bottle it up too much, eventually everything just overflows."
+    show sayori 1k
+    s "...I learned that the hard way..."
+    show sayori 1b
+    show monika 1c
+    sim "I'm afraid she's actually not too far off the truth..."
+    show natsuki 1p
+    show yuri 3p
+    ny "W-what?"
+    sim "Even though this place has different laws..."
+    sim "Which explains why you're not just dead on the floor..."
+    sim "This is pretty much a fake world."
+    s 1j "But that's impossible!"
+    sim "So are you and Yuri being alive."
+    show yuri 3o
+    show natsuki 5s
+    s 4k "..."
+    show natsuki 5n
+    y 2o "...But if we're just data, doesn't that mean..."
+    sim "That everything you say and do is predetermined?"
+    sim "Well, yeah, but don't let that be the reason to just go and err..."
+    sim "Go bonkers."
+    n "..."
+    show yuri 2p
+    show monika 1o
+    n 5m "I take back what I said about the anime. No anime is this weird."
+    show natsuki 5n
+    s 4l "All I learned was that everything I know is wrong and doesn't matter anyway."
+    s 4k "That's not really a great lesson to teach, is it?"
+    sim "Well, you gals asked for it."
+    y 2q "Well, I guess now would be a good time to regret that decision."
 
 label s_newjoin:
     $ maincid = random.choice(availableCharacters.keys())

@@ -87,9 +87,11 @@ Andreas Van Vooren (N00bFlesh)
 * ["JacobsLadderSingle2.flac"](https://freesound.org/people/Halleck/sounds/19487/) by Halleck released under CC Attribution license
 * ["ELECTRIC_ZAP_001.wav"](https://freesound.org/people/JoelAudio/sounds/136542/) by JoelAudio released under CC0 license
 * ["whip.wav"](https://freesound.org/people/_def/sounds/346524/) by _def released under CC Attribution license
-* ["Spinning Cable 192kHz.wav"](https://freesound.org/people/JarredGibb/sounds/219031/) by sophiehall3535 released under CC Attribution license
+* ["Spinning Cable 192kHz.wav"](https://freesound.org/people/JarredGibb/sounds/219031/) by JarredGibb released under CC Attribution license
 * ["Steel_On_Steel_Impacts_Many.wav"](https://freesound.org/people/mickyman5000/sounds/340493/) by mickyman5000 released under CC0 license
 * ["Alto Gong, Metal Hit, B (H4n).wav"](https://freesound.org/people/InspectorJ/sounds/411575/) by InspectorJ released under CC Attribution license
+* ["Oven 01.wav"](https://freesound.org/people/JarredGibb/sounds/219505/) by JarredGibb released under CC0 license
+* ["Ding Ding Small Bell"](https://freesound.org/people/JohnsonBrandEditing/sounds/173932/) by JohnsonBrandEditing released under CC0 license
 
 ## Additional Images
 
@@ -101,10 +103,4 @@ Andreas Van Vooren (N00bFlesh)
 * ["Westinghouse Microwave Oven, 1956, jointly produced by Tappen, Raytheon, & Westinghouse, this model served as demo model at the 1956 World's Fair in Belgium - National Electronics Museum - DSC00282.JPG"](https://commons.wikimedia.org/wiki/File:Westinghouse_Microwave_Oven,_1956,_jointly_produced_by_Tappen,_Raytheon,_%26_Westinghouse,_this_model_served_as_demo_model_at_the_1956_World%27s_Fair_in_Belgium_-_National_Electronics_Museum_-_DSC00282.JPG) (Yes, the name is that long) by Daderot under the CC0 1.0 license
 * ["Choco souffle.jpg"](https://commons.wikimedia.org/wiki/File:Choco_souffle.jpg) by Akovacs.hu under public domain
 * ["Souffle au chocolate.jpg"](https://commons.wikimedia.org/wiki/File:Souffle_au_chocolate.jpg) by Alpha under the CC BY-SA 2.0 license
-https://commons.wikimedia.org/wiki/File:Fornello_020.JPG
-https://commons.wikimedia.org/wiki/File:30_Days_of_Gratitude-_Day_15_(6347253194).jpg
-https://commons.wikimedia.org/wiki/File:Halloween_Cupcake_270_(5076903800).jpg
-https://commons.wikimedia.org/wiki/File:Choco_pink.jpg
-https://commons.wikimedia.org/wiki/File:Rocky_Road_Cupcakes.png
-https://commons.wikimedia.org/wiki/File:Red_Velvet_Cupcake.jpg
-https://commons.wikimedia.org/wiki/File:%E7%B5%90%E9%9C%B2_(9809299716).jpg
+* ["https://commons.wikimedia.org/wiki/File:Red_Velvet_Cupcake.jpg"](https://commons.wikimedia.org/wiki/File:Red_Velvet_Cupcake.jpg) by Luciamad under the CC BY-SA 3.0 license

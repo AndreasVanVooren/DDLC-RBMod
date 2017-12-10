@@ -122,6 +122,10 @@ init -1 python:
         trans.xzoom = randFloatX
         trans.yzoom = randFloatY
         return 0.02
+    def rumble(trans,st,at):
+        trans.xoffset = renpy.random.randint(-3,3)
+        trans.yoffset = renpy.random.randint(-3,3)
+
 
 image glitch:
     xalign 0.5
@@ -225,21 +229,74 @@ image panattack:
     rotate 0
     linear 0.5 zoom 1.5 alpha 0
 
+transform playerArea:
+    xcenter 0.5
+    ycenter 0.5
+    xalign 0.5
+    yalign 0.5
+    xanchor 0.5
+    yanchor 0.5
+    xanchor 0.5
+    yanchor 0.5
+    xoffset 640
+    yoffset 640
+
 image souffleattack:
-    xpos 640
-    ypos 720
-    "mod/attacks/oven.png"
+    contains:
+        "mod/attacks/oven.png"
+        0.75
+        "mod/attacks/oven2.png"
+        0.6
+        linear 0.2 alpha 0
+    contains:
+        0.75
+        "mod/attacks/souffle.png"
+        parallel:
+            easein 0.4 yoffset -200
+            easeout 0.4 yoffset 0
+        parallel:
+            linear 0.8 rotate -120
+        parallel:
+            0.6
+            linear 0.2 alpha 0
 
-
+image cupcakeattack:
+    xalign 0.5
+    yalign 0.5
+    contains:
+        xalign 0.5
+        yalign 0.5
+        "mod/attacks/oven.png"
+        0.75
+        "mod/attacks/oven2.png"
+        0.6
+        linear 0.2 alpha 0
+    contains:
+        0.75
+        xalign 0.5
+        yalign 0.5
+        "mod/attacks/cupcake.png"
+        parallel:
+            easein 0.4 yoffset -200
+            easeout 0.4 yoffset 0
+        parallel:
+            linear 0.8 rotate -120
+        parallel:
+            0.6
+            linear 0.2 alpha 0
 
 image hand :
      "mod/enemies/hand.png"
      yalign 0
      yanchor 0
 
+image constrict:
+    "mod/attacks/constrict.png"
+
+
 default persistent.first_battle = True
 default persistent.hasSeenPHPRant = False
-
+default persistent.timesHealedOpponent = 0
 
 default persistent.s_satisfaction = 0.0
 default persistent.s_firstThreshold = False
@@ -358,9 +415,12 @@ init python:
 
     def Bake(m,s,t):
         truHeal = m.damage
-        result = s.name + " baked a delicious cupcake for " + t.name + ", healing " + str(truHeal) + "HP."
+        if(t != s):
+            result = s.name + " baked a delicious cupcake for " + t.name + ", healing " + str(truHeal) + "HP."
+        else:
+            result = s.name + " baked a delicious cupcake for herself, healing " + str(truHeal) + "HP."
         if(t.team != s.team):
-            result += "\nThis was a terrible idea."
+            result = AppendBadMove(result)
         return result;
 
     def Souffle(m,s,t):
@@ -368,16 +428,17 @@ init python:
         truHeal = m.damage
         for c in characters:
             if(c.team == s.team):
-                c.hp += truDmg
+                c.hp += truHeal
                 if(c.hp > c.maxhp()): c.hp = c.maxhp()
         return s.name + " healed " + str(truHeal) + " to all party members!"
 
-    atk_spark    = Attack("Spark",10,0, img_id = "spark", sfx_path = "mod/sfx/spark16.wav")
-    atk_glitch   = Attack("Glitch",30,10,5, img_id = "glitch", sfx_path = "mod/sfx/glitch16.wav")
-    atk_whip     = Attack("Whip",10,0, img_id="whipit", sfx_path = "mod/sfx/whipcrack16.wav")
-    atk_lasso    = Attack("Lasso",20,5,3, ApplyFunc= Lasso, img_id="lassothecarp", sfx_path = "mod/sfx/lasso16.wav")
-    atk_stab     = Attack("Stab",10,0, img_id = "knifeattack", sfx_path = "<silence .1>")
-    atk_shank    = Attack("Shank",40,15,6, img_id = "shank", sfx_path = "<silence .1>")
-    atk_pan      = Attack("Pan",10,0, img_id = "panattack", sfx_path = "mod/sfx/pan.wav")
-    atk_bake     = Attack("Bake",20,5,2, ApplyFunc=DefaultHeal, icon_path = "mod/icons/heal.png")
-    atk_souffle  = Attack("Soufflé",40,20,0, ApplyFunc=Souffle, icon_path = "mod/icons/heal.png")
+    atk_spark       = Attack("Spark",10,0, img_id = "spark", sfx_path = "mod/sfx/spark16.wav")
+    atk_glitch      = Attack("Glitch",30,10,5, img_id = "glitch", sfx_path = "mod/sfx/glitch16.wav")
+    atk_whip        = Attack("Whip",10,0, img_id="whipit", sfx_path = "mod/sfx/whipcrack16.wav")
+    atk_lasso       = Attack("Lasso",20,5,3, ApplyFunc= Lasso, img_id="lassothecarp", sfx_path = "mod/sfx/lasso16.wav")
+    atk_stab        = Attack("Stab",10,0, img_id = "knifeattack", sfx_path = "<silence .1>")
+    atk_shank       = Attack("Shank",40,15,6, img_id = "shank", sfx_path = "<silence .1>")
+    atk_pan         = Attack("Pan",10,0, img_id = "panattack", sfx_path = "mod/sfx/pan.wav")
+    atk_bake        = Attack("Bake",20,5,2, ApplyFunc=Bake, icon_path = "mod/icons/heal.png", img_id = "cupcakeattack", sfx_path = "mod/sfx/oven.wav")
+    atk_souffle     = Attack("Soufflé",40,20,0, ApplyFunc=Souffle, icon_path = "mod/icons/heal.png", img_id = "souffleattack", sfx_path = "mod/sfx/oven.wav", overrideTransform = Transform(xalign = 0.0, yalign = 0.0, xanchor = 0.0, yanchor = 0.0, xoffset = 515, yoffset = 500))
+    atk_constrict   = Attack("Strangle",15, img_id="", sfx_path="constrict.wav")

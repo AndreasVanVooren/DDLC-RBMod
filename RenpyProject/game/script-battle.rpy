@@ -107,6 +107,18 @@ init -1 python:
     timesHealedOpponent = 0
     lastBattleWon = False
 
+    def AppendBadMove(result):
+        persistent.timesHealedOpponent += 1
+        if(persistent.timesHealedOpponent < 3):
+            result += "\nIn hindsight, this was a stupid idea."
+        elif (persistent.timesHealedOpponent < 7):
+            result += "\nYou should really stop healing the opponent."
+        elif (persistent.timesHealedOpponent < 10):
+            result += "\n...Maybe you should check yourself for brain damage,\nbecause this is an unnatural amount of stupidity."
+        else:
+            result += "\n...Please seek help..."
+        return result
+
     def DefaultApply(self, srcChar, tgtChar):
         truDmg = ceil( self.damage * (float(srcChar.attack())/tgtChar.defense() ) )
         tgtChar.hp -= truDmg
@@ -119,19 +131,11 @@ init -1 python:
         if(tgtChar.hp > tgtChar.maxhp()): tgtChar.hp = tgtChar.maxhp()
         result = tgtChar.name + " healed " + str(truDmg) + " damage!"
         if(tgtChar.team != srcChar.team and srcChar.team == playerTeam):
-            timesHealedOpponent += 1
-            if(timesHealedOpponent < 3):
-                result += "\nIn hindsight, this was a stupid idea."
-            elif (timesHealedOpponent < 7):
-                result += "\nYou should really stop healing the opponent."
-            elif (timesHealedOpponent < 10):
-                result += "\n...Maybe you should check yourself for brain damage,\nbecause this is an unnatural amount of stupidity."
-            else:
-                result += "\n...Please seek help..."
+            result = AppendBadMove(result)
         return result
     class Attack:
         #ApplyFunc is the function that provides the actual calculation for damage. This can be used for
-        def __init__(self, name, damage, cost = 0, lvlReqs = 0, img_id ="explosion", sfx_path = "mod/sfx/boom.wav", icon_path = "mod/icons/knife.png", ApplyFunc = DefaultApply, preferredForTeam=False):
+        def __init__(self, name, damage, cost = 0, lvlReqs = 0, img_id ="explosion", sfx_path = "mod/sfx/boom.wav", icon_path = "mod/icons/knife.png", ApplyFunc = DefaultApply, preferredForTeam=False,overrideTransform = None):
             self.name = name
             self.damage = damage
             self.preferredForTeam = preferredForTeam
@@ -141,12 +145,16 @@ init -1 python:
             self.icon_path = icon_path
             self.lvlReqs = lvlReqs
             self.ApplyFunc = ApplyFunc
+            self.overrideTransform = overrideTransform
 
 
 
         def Apply(self, srcChar, tgtChar):
             global ui_text
-            atkFxTransform = Transform(xoffset = tgtChar.posX, yoffset = tgtChar.posY )
+            if(self.overrideTransform != None):
+                atkFxTransform = self.overrideTransform
+            else:
+                atkFxTransform = Transform(xoffset = tgtChar.posX, yoffset = tgtChar.posY )
             renpy.show(self.img_id, at_list = [atkFxTransform], layer = "overlay")
             renpy.sound.play(self.sfx_path)
             srcChar.mp -= self.cost
@@ -640,6 +648,8 @@ label TestBattle:
     "Boom!"
 
     call TrueBattle( [test1,test2,test6,test7,test5,testloli], "monika_room", "mod/peppersteak.ogg" ) from _call_Battle_1
+
+    "Wow! You are really good at killing stuff!"
 
     return
 
