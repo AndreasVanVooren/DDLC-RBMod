@@ -20,12 +20,12 @@
 /RenpyProject/**/cache/*
 /RenpyProject/**/saves/*
 
-# Dll project auto-generated
-/DllProject/**/.vs/**
-/DllProject/**/Debug/**
-/DllProject/**/x64/**
-/DllProject/**/*.vcxproj.user
-/DllProject/**/*.vcxproj.filters
+# Visual studio project auto-generated
+**/.vs/**
+**/Debug/**
+**/x64/**
+**/*.vcxproj.user
+**/*.vcxproj.filters
 
 # files we don't want in our SO project
 /SoProjectLinux/**/*.o
