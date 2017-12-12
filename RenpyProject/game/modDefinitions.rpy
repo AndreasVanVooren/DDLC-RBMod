@@ -318,6 +318,10 @@ init -1 python :
         renpy.sound.play( renpy.random.choice(["<from 1.194 to 1.941>sfx/stab.ogg", "<from 3.281 to 4.211>sfx/stab.ogg"]) )
         return None
 
+image natsuki crackn = "mod/natsuki/crackn.png"
+image natsuki crackl = "mod/natsuki/crackl.png"
+image natsuki crackr = "mod/natsuki/crackr.png"
+
 image yuri stab_repeat:
     "yuri/stab/4.png"
     function playStab

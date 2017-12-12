@@ -132,7 +132,7 @@ label s_TestPostBattle:
 
 label php_PreBattle:
     $ persistent.hasSeenPHPRant = True
-    #if( no monika )
+    #if( TODO TODO TODO no monika )
     #    return
     show monika 2a at t42
     m 2a "Hmmm... Let's see..."
