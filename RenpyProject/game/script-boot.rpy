@@ -2599,6 +2599,9 @@ label surviveLoop:
             c.battlechar.mp = c.battlechar.maxmp()
             c.battlechar.insane += 2
     play music m1
+    #pick a random post survive scene
+    scene monika_room
+    call PostSurvive
     scene black with wipeleft
     "A night passes..."
     scene monika_room with dissolve_scene_half

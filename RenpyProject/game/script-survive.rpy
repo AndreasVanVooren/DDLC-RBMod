@@ -245,6 +245,11 @@ label Survive(bgi=None, tune = None):
         #jump TestSurviveEnd
         return
 
+label PostSurvive:
+    # TODO Better way of checking this
+    if(cidn in availableCharacters.keys()):
+        pass
+
 label TestSurvive:
     "Oh hey looks like you want to survive and shit"
     "You cant you'll die lol"
