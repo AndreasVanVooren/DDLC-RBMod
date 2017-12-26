@@ -131,7 +131,6 @@ label s_TestPostBattle:
     return
 
 label php_PreBattle:
-    $ persistent.hasSeenPHPRant = True
     #if( TODO TODO TODO no monika )
     #    return
     show monika 2a at t42
@@ -196,4 +195,66 @@ label php_PreBattle:
     hide monika
     hide sayori
     play music currentTune
+    return
+
+label php_PostBattle:
+    $ persistent.hasSeenPHPRant = True
+    show monika 2r zorder 3 at f42
+    if( cids in availableCharacters.keys() ):
+        show sayori 4g zorder 2 at t43
+    if( cidy in availableCharacters.keys() ):
+        show yuri 3f zorder 2 at t44
+    if( cidn in availableCharacters.keys() ):
+        show natsuki 4g zorder 2 at t41
+    m "Oof... Now that that's taken care of..."
+    if( cids in availableCharacters.keys() ):
+        $ persistent.s_satisfaction += 0.05
+        m 1i "Here Sayori, you can have this."
+        show sayori 4m zorder 3 at hf43
+        s "Uhh... sure... thanks?"
+    elif( cidy in availableCharacters.keys() ):
+        $ persistent.y_satisfaction += 0.05
+        m 1i "Here Yuri, you can have this."
+        show yuri 3p zorder 3 at hf44
+        show monika zorder 2 at t42
+        y "What, why?"
+        show yuri zorder 2 at t44
+        show monika zorder 3 at f42
+        m 1p "Just get rid of it..."
+        show monika zorder 2 at t42
+        show yuri 3o zorder 3 at f44
+        y "Oh, okay then..."
+
+    elif( cidy in availableCharacters.keys() ):
+        $ persistent.n_satisfaction += 0.05
+        m 1i "Here Natsuki, you can have this."
+        show natsuki 1p zorder 3 at hf44
+        show monika zorder 2 at t42
+        n "W-what?"
+        n 2q "Sure... Okay..."
+    else:
+        m 1p "I'll just... leave it here."
+        m "Nobody needs to know."
+        sim "Dang, you really don't want that file do you?"
+        m 1i "I don't."
+    show monika zorder 3 at f42
+    m 2r "Now please... I think I need some time alone..."
+    if( cids in availableCharacters.keys() ):
+        show sayori 4n at lhide
+        s "O-okay."
+        hide sayori
+    if( cidy in availableCharacters.keys() ):
+        show yuri 1n at lhide
+        y "A-alright."
+        hide yuri
+    if( cidn in availableCharacters.keys() ):
+        show natsuki 2k at lhide
+        n "F-fine then."
+        hide natsuki
+    sim "Sure."
+    play sound "sfx/glitch3.ogg"
+    "{i}Kzzzt...{/i}"
+    m  "..."
+    m 1h "[player]?"
+    m 1h "You disgust me."
     return

@@ -248,7 +248,8 @@ label Survive(bgi=None, tune = None):
 label PostSurvive:
     # TODO Better way of checking this
     if(cidn in availableCharacters.keys()):
-        pass
+        call n_randPainInTheNeck
+    return
 
 label TestSurvive:
     "Oh hey looks like you want to survive and shit"

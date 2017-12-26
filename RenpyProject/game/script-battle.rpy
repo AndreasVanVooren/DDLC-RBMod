@@ -474,7 +474,7 @@ label PreBattle(filename, characters, bgi=None, tune=None):
     python:
         #check against several values to check certain things
         dialogLabel = None
-        if(filename.endswith(".php") and not persistent.hasSeenPHPRant):
+        if(filename.endswith(".php") and not persistent.hasSeenPHPRant and (cidm in availableCharacters.keys())):
             dialogLabel = "php_PreBattle"
         else:
             needsFirstBattle = False;
@@ -500,6 +500,9 @@ label PreBattle(filename, characters, bgi=None, tune=None):
 label PostBattle(filename, characters, bgi=None, tune=None):
     python:
         if(lastBattleWon):
+            if(filename.endswith(".php") and not persistent.hasSeenPHPRant and (cidm in availableCharacters.keys())):
+                renpy.call("php_PostBattle")
+                renpy.return_statement();
             forId = GetAssocFromFileName(filename)
             if  (forId == cids):
                 if(not DoesFileContainBulli(filename)):
